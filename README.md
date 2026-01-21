@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Authored by Billy, co-authored with Claude
+
 First, run the development server:
 
 ```bash
