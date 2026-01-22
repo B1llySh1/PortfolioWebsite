@@ -9,6 +9,7 @@ import TerminalWindow from './_components/TerminalWindow'
 import NavBar from './_components/NavBar'
 import SkillInventory from './_components/SkillInventory'
 import DialogueBox from './_components/DialogueBox'
+import QuestLog from './_components/QuestLog'
 import { skills } from './_data/skills'
 import { useScrollTracking } from './_hooks/useScrollTracking'
 import { useDialogue } from './_hooks/useDialogue'
@@ -111,6 +112,11 @@ export default function Home() {
               </PixelCard>
             </div>
           </motion.div>
+        </section>
+
+        {/* Quest Log Section */}
+        <section className="mb-16 pixel-border-top pt-8">
+          <QuestLog />
         </section>
 
         {/* Project Grid */}

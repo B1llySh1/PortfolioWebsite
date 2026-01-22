@@ -216,6 +216,33 @@ nav a:hover {
   @apply animate-glitch;
 }
 
+/* Custom Pixel Hand Cursor */
+.cursor-pixel-hand {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' stroke='%23000' stroke-width='1' d='M8 2h2v4h2V2h2v6h2V4h2v8c0 4-2 6-6 8h-4c-2-1-4-3-4-6V6h2v4h2V2z'/%3E%3C/svg%3E") 6 0, pointer;
+}
+
+/* Neon Glow Border Effect */
+.neon-glow-border {
+  box-shadow:
+    8px 8px 0px 0px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 0, 110, 0.6),
+    0 0 20px rgba(255, 0, 110, 0.4),
+    0 0 30px rgba(255, 0, 110, 0.2) !important;
+  border-color: #ff006e !important;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Quest Card Link Reset (remove default link styles) */
+.quest-card-link {
+  @apply no-underline;
+  color: inherit;
+}
+
+.quest-card-link:hover {
+  @apply no-underline;
+  text-shadow: none;
+}
+
 /* Parallax Background Layers */
 .parallax-layer-far {
   @apply absolute inset-0;
