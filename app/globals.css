@@ -243,6 +243,48 @@ nav a:hover {
   text-shadow: none;
 }
 
+/* Pill-shaped Execute Button */
+.btn-execute {
+  @apply
+    bg-gameboy-green-700
+    text-pixel-black
+    px-4 py-1.5
+    text-[10px]
+    font-pixel
+    flex items-center gap-1
+    rounded-lg
+    border-2 border-gameboy-green-900;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+  transition: all 150ms ease-out;
+}
+
+/* Button Blink Animation on Card Hover */
+@keyframes execute-blink {
+  0%, 100% {
+    background-color: #8bac0f;
+    color: #0a0a0a;
+  }
+  50% {
+    background-color: #fafafa;
+    color: #0a0a0a;
+  }
+}
+
+.group:hover .btn-execute {
+  animation: execute-blink 0.4s steps(2, end) infinite;
+  box-shadow: 0 0 10px rgba(139, 172, 15, 0.8);
+}
+
+/* Level Warp Flash */
+.level-warp-flash {
+  position: fixed;
+  inset: 0;
+  background-color: #fafafa;
+  z-index: 10000;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
 /* Parallax Background Layers */
 .parallax-layer-far {
   @apply absolute inset-0;

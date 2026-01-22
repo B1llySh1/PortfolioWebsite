@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Trophy, Lock, ExternalLink } from 'lucide-react'
 import { HomeQuest } from '../_data/homeQuests'
 
@@ -12,6 +12,7 @@ interface Props {
 
 export default function HomeQuestCard({ quest, index }: Props) {
   const [isHovered, setIsHovered] = useState(false)
+  const [isWarping, setIsWarping] = useState(false)
   const isClickable = quest.status === 'completed' && quest.link
   const isLocked = quest.status === 'locked'
 
@@ -31,6 +32,15 @@ export default function HomeQuestCard({ quest, index }: Props) {
       badge: 'bg-terminal-cyan-500 text-pixel-black',
       text: 'QUEST LOCKED'
     }
+  }
+
+  // Level warp handler - flash then navigate
+  const handleExecute = (link: string) => {
+    setIsWarping(true)
+    setTimeout(() => {
+      window.open(link, '_blank', 'noopener,noreferrer')
+      setIsWarping(false)
+    }, 400)
   }
 
   // Card content component to avoid duplication
@@ -90,15 +100,15 @@ export default function HomeQuestCard({ quest, index }: Props) {
         </p>
       )}
 
-      {/* SELECT button for clickable (bouncing) */}
+      {/* EXECUTE button for clickable (bouncing) */}
       {isClickable && (
         <motion.div
           className="flex items-center gap-2 mt-4"
           animate={{ y: [0, -3, 0] }}
           transition={{ duration: 0.6, repeat: Infinity, repeatType: 'loop' }}
         >
-          <span className="bg-gameboy-green-700 text-pixel-black px-3 py-1 text-[10px] font-pixel flex items-center gap-1">
-            <span className="text-xs">A</span> SELECT
+          <span className="btn-execute">
+            EXECUTE
             <ExternalLink className="w-3 h-3" />
           </span>
         </motion.div>
@@ -118,17 +128,18 @@ export default function HomeQuestCard({ quest, index }: Props) {
     </>
   )
 
-  // Motion wrapper for the card
+  // Motion wrapper for the card with enhanced slide-in animation
   const cardElement = (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.15, type: 'spring', stiffness: 100, damping: 20 }}
+      transition={{ delay: index * 0.2, type: 'spring', stiffness: 120, damping: 18 }}
       whileHover={isClickable ? { scale: 1.02 } : undefined}
       whileTap={isClickable ? { scale: 0.98 } : undefined}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       className={`
+        group
         relative border-pixel ${statusStyles[quest.status].border}
         bg-retro-purple-800 p-4 md:p-6
         ${isClickable ? 'cursor-pixel-hand' : ''}
@@ -141,17 +152,29 @@ export default function HomeQuestCard({ quest, index }: Props) {
     </motion.div>
   )
 
-  // Wrap in anchor tag for clickable cards
+  // Wrap with click handler for clickable cards
   if (isClickable && quest.link) {
     return (
-      <a
-        href={quest.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block quest-card-link"
-      >
-        {cardElement}
-      </a>
+      <>
+        <div
+          onClick={() => handleExecute(quest.link!)}
+          className="block quest-card-link"
+        >
+          {cardElement}
+        </div>
+
+        {/* Level Warp Flash Overlay */}
+        <AnimatePresence>
+          {isWarping && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 0.4, times: [0, 0.1, 0.7, 1] }}
+              className="level-warp-flash"
+            />
+          )}
+        </AnimatePresence>
+      </>
     )
   }
 

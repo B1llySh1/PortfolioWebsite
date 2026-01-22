@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Scroll } from 'lucide-react'
+import { ClipboardList } from 'lucide-react'
 import HomeQuestCard from './HomeQuestCard'
 import { homeQuests } from '../_data/homeQuests'
 import { sectionEntry } from '../_utils/animations'
@@ -16,8 +16,13 @@ export default function QuestLog() {
         transition={sectionEntry.transition}
         className="flex items-center gap-3 mb-8"
       >
-        <Scroll className="w-6 h-6 text-retro-yellow-500" />
-        <h2 className="text-xl md:text-2xl text-retro-yellow-500">QUEST LOG</h2>
+        <ClipboardList className="w-6 h-6 text-retro-yellow-500" />
+        <div>
+          <h2 className="text-xl md:text-2xl text-retro-yellow-500 font-pixel">THE QUEST BOARD</h2>
+          <p className="text-[10px] font-pixel text-gameboy-green-400 mt-1">
+            Select a mission to view deployment details.
+          </p>
+        </div>
       </motion.div>
 
       {/* Quest Grid - 2 cols desktop, 1 col mobile */}
