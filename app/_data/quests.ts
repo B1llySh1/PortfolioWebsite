@@ -56,6 +56,21 @@ export const quests: Quest[] = [
     ]
   },
   {
+    title: 'Studdi Buddi Finder',
+    subtitle: 'Mobile Quest: Peer-to-Peer Learning',
+    description: 'Engineered a peer-to-peer social networking app using Kotlin and Android Studio, implementing Firebase Realtime Database to facilitate live synchronization of formal on-campus study groups.',
+    difficulty: 3,
+    status: 'completed',
+    period: 'Sep 2023 - Dec 2023',
+    loot: ['Kotlin', 'Android Studio', 'Firebase', 'Realtime Database', 'Material Design'],
+    rewards: [
+      'Live synchronization of study group data using Firebase Realtime Database',
+      'Peer-to-peer matching algorithm for formal on-campus study sessions',
+      'Eliminated student isolation through structured study group formation',
+      'Material Design UI for intuitive mobile experience'
+    ]
+  },
+  {
     title: 'Reddit Comment Predictor',
     subtitle: 'Academic Quest: NLP Mastery',
     description: 'BERT-based NLP model predicting comment popularity from 9 years of Reddit history. Fine-tuned BERT with custom MLP head and layer-freezing for efficiency, achieving 18% MAE reduction.',

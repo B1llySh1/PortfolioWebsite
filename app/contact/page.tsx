@@ -1,6 +1,6 @@
 'use client'
 
-import { Mail, Globe, Phone, MessageSquare } from 'lucide-react'
+import { Mail, Linkedin, Github, MessageSquare } from 'lucide-react'
 import PixelButton from '../_components/PixelButton'
 import PixelCard from '../_components/PixelCard'
 import NavBar from '../_components/NavBar'
@@ -15,18 +15,18 @@ export default function Contact() {
       display: 'l32shi@uwaterloo.ca'
     },
     {
-      label: 'Website',
-      href: 'https://billyshi.com',
-      icon: <Globe className="w-6 h-6" />,
+      label: 'LinkedIn',
+      href: 'https://linkedin.com/in/lei-shi-4a4073226',
+      icon: <Linkedin className="w-6 h-6" />,
       variant: 'secondary' as const,
-      display: 'billyshi.com'
+      display: 'lei-shi-4a4073226'
     },
     {
-      label: 'Phone',
-      href: 'tel:+12367889600',
-      icon: <Phone className="w-6 h-6" />,
+      label: 'GitHub',
+      href: 'https://github.com/B1llySh1',
+      icon: <Github className="w-6 h-6" />,
       variant: 'gameboy' as const,
-      display: '+1-236-788-9600'
+      display: 'B1llySh1'
     },
   ]
 

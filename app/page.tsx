@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { Zap, Terminal, Heart, Mail, Globe, Phone, Briefcase } from 'lucide-react'
+import { Zap, Terminal, Heart, Mail, Linkedin, Github, Briefcase } from 'lucide-react'
 import PixelCard from './_components/PixelCard'
 import PixelButton from './_components/PixelButton'
 import StatBar from './_components/StatBar'
@@ -199,19 +199,19 @@ export default function Home() {
               </PixelButton>
 
               <PixelButton
-                href="https://billyshi.com"
+                href="https://linkedin.com/in/lei-shi-4a4073226"
                 variant="secondary"
-                icon={<Globe className="w-5 h-5" />}
+                icon={<Linkedin className="w-5 h-5" />}
               >
-                WEBSITE
+                LINKEDIN
               </PixelButton>
 
               <PixelButton
-                href="tel:+12367889600"
+                href="https://github.com/B1llySh1"
                 variant="gameboy"
-                icon={<Phone className="w-5 h-5" />}
+                icon={<Github className="w-5 h-5" />}
               >
-                PHONE
+                GITHUB
               </PixelButton>
             </div>
 

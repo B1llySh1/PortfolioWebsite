@@ -35,19 +35,20 @@ export default function PixelCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.4,
+        type: 'spring',
+        stiffness: 260,
+        damping: 25,
         delay: delay,
-        ease: [0, 0, 1, 1], // Stepped easing
       }}
       whileHover={hoverEffect ? {
         scale: 1.02,
-        transition: { duration: 0.2, ease: [0, 0, 1, 1] }
+        transition: { type: 'spring', stiffness: 300, damping: 20 }
       } : {}}
       className={`
-        pixel-card
+        pixel-card gpu-accelerated
         ${variants[variant]}
         ${hoverEffect ? hoverVariants[variant] : ''}
         ${className}
